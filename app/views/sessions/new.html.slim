@@ -1,0 +1,12 @@
+h1 Sign In
+= form_tag sessions_path do
+  .fieldset
+    .field
+      = label_tag :group_id
+      br/
+      = text_field_tag :group_id, params[:group_id]
+    .field
+      = label_tag :password
+      br/
+      = password_field_tag :password, params[:group_id]
+    .actions= submit_tag "Sign In"

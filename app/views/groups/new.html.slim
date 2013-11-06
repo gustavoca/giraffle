@@ -1,0 +1,26 @@
+h1 Sign Up
+= form_for @group do |f|
+  .fieldset
+    - if @group.errors.any?
+      .error_messages
+        h2 Form is invalid
+        ul
+          - @group.errors.full_messages.each do |message|
+            li= message
+    .field
+      = f.label :name
+      br/
+      = f.text_field :name
+    .field
+      = f.label :group_id
+      br/
+      = f.text_field :group_id
+    .field
+      = f.label :password
+      br/
+      = f.password_field :password
+    .field
+      = f.label :password_confirmation
+      br/
+      = f.password_field :password_confirmation
+    .actions= f.submit "Sign Up"

@@ -1,0 +1,11 @@
+class CreateGroups < ActiveRecord::Migration
+  def change
+    create_table :groups do |t|
+      t.string :group_id
+      t.string :name
+      t.string :password_digest
+
+      t.timestamps
+    end
+  end
+end
