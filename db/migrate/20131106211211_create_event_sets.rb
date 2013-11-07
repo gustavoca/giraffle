@@ -5,6 +5,7 @@ class CreateEventSets < ActiveRecord::Migration
       t.date 			 :start_date
       t.integer 	 :interval
       t.integer 	 :organizers_per_event
+      t.integer    :num_of_members_to_raffle
       t.references :group, index: true
 
       t.timestamps

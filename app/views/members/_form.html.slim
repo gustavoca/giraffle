@@ -1,0 +1,20 @@
+h2 New Member
+= form_for @member do |f|
+  .fieldset
+    - if @member.errors.any?
+      .error_messages
+        h2 Form is invalid
+        ul
+          - @member.errors.full_messages.each do |message|
+            li= message
+    .row
+      .small-12.columns
+        = f.label :name
+        = f.text_field :name
+    .row
+      .small-12.columns
+        = f.label :email
+        = f.text_field :email
+    .row
+      .small-3.small-centered.columns
+        .actions= f.submit 'Sign Up', class: 'button radius'

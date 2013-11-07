@@ -21,4 +21,5 @@ group :development do
 	gem "binding_of_caller"
   gem 'quiet_assets'
   gem 'irbtools', :require => false
+  gem 'pry'
 end

@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20131106215543) do
     t.date     "start_date"
     t.integer  "interval"
     t.integer  "organizers_per_event"
+    t.integer  "num_of_members_to_raffle"
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,8 +53,11 @@ ActiveRecord::Schema.define(version: 20131106215543) do
   create_table "members", force: true do |t|
     t.string   "name"
     t.string   "email"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "members", ["group_id"], name: "index_members_on_group_id"
 
 end

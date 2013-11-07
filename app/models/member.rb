@@ -4,5 +4,5 @@ class Member < ActiveRecord::Base
 
 	validates :group, presence: true
 	validates :name,  presence: true
-	validates :email, email: 		true
+	#validates :email, email: true
 end
