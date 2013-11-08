@@ -3,6 +3,7 @@ class MembersController < ApplicationController
 	before_action :authorize
 
   def index
+  	@member = Member.new
     @members = Member.where(group: current_group)
   end
 

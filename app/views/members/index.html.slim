@@ -16,10 +16,4 @@ table
 					' 
 					= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small radius alert'
 
-a.button.radius href="#" data-reveal-id="new-member-modal"
-	| New Member
-
-#new-member-modal.reveal-modal
-  = render 'new'
-  a.close-reveal-modal
-  	| &#215;
+= link_to 'New Member', new_member_path, class: 'button radius'
