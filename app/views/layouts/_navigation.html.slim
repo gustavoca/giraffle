@@ -1,22 +1,30 @@
-nav.top-bar
-  ul.title-area
-    li.name
-      h1= link_to "Giraffle", root_path
-    li.toggle-topbar.menu-icon
-      a href="#"
-        span
-  section.top-bar-section
-    ul.left
-      li.divider.show-for-large-up
-    ul.right
-      li.divider
-      - if group_signed_in?
-        li.has-dropdown
-          a href="#"= current_group.name            
-          ul.dropdown
-            li= link_to 'Edit Info', edit_group_path(current_group)
-            li= link_to 'Sign out', sign_out_path, method: 'delete'
-      - else
-        li= link_to 'Sign Up', sign_up_path
+.fixed
+  nav.top-bar
+    ul.title-area
+      li.name
+        h1= link_to "Giraffle", root_path
+      li.toggle-topbar.menu-icon
+        a href="#"
+          span
+    section.top-bar-section
+      ul.left
         li.divider
-        li= link_to 'Sign In', sign_in_path
+        - if group_signed_in?
+          li= link_to 'Members', members_path
+          li.divider
+          li= link_to 'Events', events_path
+          li.divider
+          li= link_to 'New Event Set', new_event_set_path
+          li.divider.show-for-large-up
+      ul.right
+        li.divider
+        - if group_signed_in?
+          li.has-dropdown
+            a href="#"= current_group.name            
+            ul.dropdown
+              li= link_to 'Edit Info', edit_group_path(current_group)
+              li= link_to 'Sign out', sign_out_path, method: 'delete'
+        - else
+          li= link_to 'Sign Up', sign_up_path
+          li.divider
+          li= link_to 'Sign In', sign_in_path

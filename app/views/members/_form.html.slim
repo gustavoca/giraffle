@@ -1,5 +1,4 @@
-h2 New Member
-= form_for @member do |f|
+= form_for @member, remote: true do |f|
   .fieldset
     - if @member.errors.any?
       .error_messages
@@ -7,6 +6,7 @@ h2 New Member
         ul
           - @member.errors.full_messages.each do |message|
             li= message
+    = f.hidden_field :group_id
     .row
       .small-12.columns
         = f.label :name
@@ -17,4 +17,4 @@ h2 New Member
         = f.text_field :email
     .row
       .small-3.small-centered.columns
-        .actions= f.submit 'Save', class: 'button radius large expand'
+        .actions= f.submit 'Save', class: 'button radius large right'

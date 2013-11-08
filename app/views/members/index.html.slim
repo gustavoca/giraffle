@@ -1,6 +1,6 @@
 h1
 	| Group Members
-table
+table#members.responsive
 	thead
 		tr
 			th= Member.human_attribute_name(:name)
@@ -8,12 +8,6 @@ table
 			th= t '.actions'
 	tbody
 		- @members.each do |member|
-			tr
-				td width="400"= member.name
-				td width="400"= member.email
-				td width="200"
-					= link_to 'Edit', member, class: 'button small radius'
-					' 
-					= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small radius alert'
+			= render 'member_fields', member: member
 
-= link_to 'New Member', new_member_path, class: 'button radius'
+= link_to 'New Member', new_member_path, id: 'new_member_link', class: 'button radius', remote: true

@@ -10,5 +10,7 @@ Member.create(name:'Saul Goodman', group:group)
 Member.create(name:'Tuco Salamanca', group:group)
 Member.create(name:'Leonel Salamanca', group:group)
 Member.create(name:'Marco Salamanca', group:group)
+Member.create(name:'Hector Salamanca', group:group)
+Member.create(name:'Don Eladio', group:group)
 
 EventSet.create(name:'Meth Cooking Lessons', start_date:Time.now, interval:7, organizers_per_event:3, num_of_members_to_raffle:Member.where(group: group).count, group:group)

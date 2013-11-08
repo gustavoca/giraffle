@@ -3,12 +3,11 @@ class MembersController < ApplicationController
 	before_action :authorize
 
   def index
-  	@member = Member.new
     @members = Member.where(group: current_group)
   end
 
 	def new
-		@member = Member.new
+		@member = Member.new(group: current_group)
 	end
 
 	def edit
@@ -18,7 +17,10 @@ class MembersController < ApplicationController
 		@member = Member.new(member_params)
 
 		if @member.save
-			redirect_to members_url, notice: 'Member was successfully created.' 
+			respond_to do |format|
+				format.html { redirect_to members_url, notice: 'Member was successfully created.' }
+				format.js
+			end
 		else
 			render 'new'
 		end
@@ -34,7 +36,10 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to members_url
+    respond_to do |format|
+			format.html { redirect_to members_url }
+			format.js
+		end
   end
 
 	private
@@ -43,6 +48,6 @@ class MembersController < ApplicationController
     end
 
 		def member_params
-			params.require(:member).permit(:name, :email)
+			params.require(:member).permit(:name, :email, :group_id)
 		end
 end
