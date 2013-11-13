@@ -1,0 +1,9 @@
+= form_for @event_set do |f|
+  - if @event_set.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@event_set.errors.count, "error")} prohibited this event_set from being saved:"
+      ul
+        - @event_set.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit 'Save'

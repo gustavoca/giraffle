@@ -1,0 +1,17 @@
+h1 Listing event_sets
+
+table
+  tr
+    th
+    th
+    th
+
+  - @event_sets.each do |event_set|
+    tr
+      td = link_to 'Show', event_set
+      td = link_to 'Edit', edit_event_set_path(event_set)
+      td = link_to 'Destroy', event_set, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Event set', new_event_set_path

@@ -16,5 +16,10 @@
         = f.label :email
         = f.text_field :email
     .row
-      .small-3.small-centered.columns
-        .actions= f.submit 'Save', class: 'button radius large right'
+      .small-4.small-centered.columns
+        .actions
+          .row
+            .small-6.columns
+              = f.submit 'Save', class: 'button radius right'
+            .small-6.columns
+              = link_to 'Cancel', :back, remote: true, type: "reset", class: 'button alert radius left'

@@ -7,7 +7,7 @@ Giraffle::Application.routes.draw do
 	resources :members
   resources :groups
   resources :events
-  resources :event_set
+  resources :event_sets
   
   root :to => 'high_voltage/pages#show', id: 'welcome'
 end
