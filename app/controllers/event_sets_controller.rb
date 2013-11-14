@@ -1,30 +1,23 @@
 class EventSetsController < ApplicationController
   before_action :set_event_set, only: [:show, :edit, :update, :destroy]
 
-  # GET /event_sets
-  # GET /event_sets.json
   def index
-    @event_sets = EventSet.all
+    @event_sets = EventSet.where(group: current_group)
   end
 
-  # GET /event_sets/1
-  # GET /event_sets/1.json
   def show
   end
 
-  # GET /event_sets/new
   def new
     @event_set = EventSet.new
   end
 
-  # GET /event_sets/1/edit
   def edit
   end
 
-  # POST /event_sets
-  # POST /event_sets.json
   def create
     @event_set = EventSet.new(event_set_params)
+    @event_set.group = current_group
 
     respond_to do |format|
       if @event_set.save
@@ -37,8 +30,6 @@ class EventSetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /event_sets/1
-  # PATCH/PUT /event_sets/1.json
   def update
     respond_to do |format|
       if @event_set.update(event_set_params)
@@ -51,8 +42,6 @@ class EventSetsController < ApplicationController
     end
   end
 
-  # DELETE /event_sets/1
-  # DELETE /event_sets/1.json
   def destroy
     @event_set.destroy
     respond_to do |format|
@@ -69,6 +58,6 @@ class EventSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_set_params
-      params[:event_set]
+      params.require(:event_set).permit(:name, :start_date, :interval, :organizers_per_event, :num_of_mebers_to_raffle)
     end
 end

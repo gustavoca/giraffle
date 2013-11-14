@@ -1,4 +1,4 @@
-= form_for @member, remote: true do |f|
+= form_for @member do |f|
   .fieldset
     - if @member.errors.any?
       .error_messages
@@ -6,7 +6,6 @@
         ul
           - @member.errors.full_messages.each do |message|
             li= message
-    = f.hidden_field :group_id
     .row
       .small-12.columns
         = f.label :name
@@ -16,10 +15,10 @@
         = f.label :email
         = f.text_field :email
     .row
-      .small-4.small-centered.columns
+      .large-12.large-centered.columns
         .actions
           .row
-            .small-6.columns
-              = f.submit 'Save', class: 'button radius right'
-            .small-6.columns
-              = link_to 'Cancel', :back, remote: true, type: "reset", class: 'button alert radius left'
+            .large-6.columns
+              = f.submit 'Save', class: 'button radius expand left'
+            .large-6.columns
+              = link_to 'Cancel', members_path, class: 'button radius alert expand right'

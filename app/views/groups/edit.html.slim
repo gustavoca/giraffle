@@ -1,24 +1,27 @@
-h1 Edit Info
-= form_for @group do |f|
-  .fieldset
-    - if @group.errors.any?
-      .error_messages
-        h2 Form is invalid
-        ul
-          - @group.errors.full_messages.each do |message|
-            li= message
-    .row
-      .small-12.columns
-        = f.label :name
-        = f.text_field :name
-    .row
-      .small-12.columns
-        = f.label :password, 'Change Password'
-        = f.password_field :password
-    .row
-      .small-12.columns
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
-    .row
-      .small-3.columns
-        .actions= f.submit 'Save Changes', class: 'button radius'
+.row
+  .large-8.large-offset-2.columns
+    .panel.radius
+      h1 Edit Info
+      = form_for @group do |f|
+        .fieldset
+          - if @group.errors.any?
+            .error_messages
+              h2 Form is invalid
+              ul
+                - @group.errors.full_messages.each do |message|
+                  li= message
+          .row
+            .small-12.columns
+              = f.label :name
+              = f.text_field :name
+          .row
+            .small-12.columns
+              = f.label :password, 'Change Password'
+              = f.password_field :password
+          .row
+            .small-12.columns
+              = f.label :password_confirmation
+              = f.password_field :password_confirmation
+          .row
+            .small-12.columns
+              .actions= f.submit 'Save Changes', class: 'button radius'

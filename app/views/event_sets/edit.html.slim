@@ -1,8 +1,25 @@
-h1 Editing event_set
-
-== render 'form'
-
-= link_to 'Show', @event_set
-'|
-= link_to 'Back', event_sets_path
-
+.row
+  .large-8.large-offset-2.columns
+    .panel.radius
+			h1 Editing Event Set
+			= form_for @event_set, data: { abide: '' } do |f|
+			  .fieldset
+			    - if @event_set.errors.any?
+			      .error_messages
+			        h2 Form is invalid
+			        ul
+			          - @event_set.errors.full_messages.each do |message|
+			            li= message
+			    .row
+			      .small-12.columns
+			        = f.label :name
+			        = f.text_field :name, :"required pattern" => '[a-zA-Z]+'
+			        small.error Name is required and must be a string
+			    .row
+			      .large-12.large-centered.columns
+			        .actions
+			          .row
+			            .small-6.columns
+			              = f.submit 'Save', class: 'button radius expand right'
+			            .small-6.columns
+			              = link_to 'Cancel', :back, class: 'button alert radius expand left'

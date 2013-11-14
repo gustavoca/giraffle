@@ -1,0 +1,31 @@
+h1 =@member.name
+
+h3 - Events to Organize
+- if @member.events_to_organize.any?
+	table#members.responsive
+		thead
+			tr
+				th= Event.human_attribute_name(:date)
+				th= Event.human_attribute_name(:event_set)
+		tbody
+			- @member.events_to_organize.each do |event|
+					tr
+						td width="600"= event.date
+						td width="600"= event.event_set.name
+- else
+	h4 Not events yet!
+
+h3 - Organized Events
+- if @member.organized_events.any?
+	table#members.responsive
+		thead
+			tr
+				th= Event.human_attribute_name(:date)
+				th= Event.human_attribute_name(:event_set)
+		tbody
+				- @member.organized_events.each do |event|
+					tr
+						td width="600"= event.date
+						td width="600"= event.event_set.name
+- else
+	h4 Not events yet!

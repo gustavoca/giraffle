@@ -1,9 +1,38 @@
-= form_for @event_set do |f|
-  - if @event_set.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@event_set.errors.count, "error")} prohibited this event_set from being saved:"
-      ul
-        - @event_set.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit 'Save'
+= form_for @event_set, data: { abide: '' } do |f|
+  .fieldset
+    - if @event_set.errors.any?
+      .error_messages
+        h2 Form is invalid
+        ul
+          - @event_set.errors.full_messages.each do |message|
+            li= message
+    .row
+      .small-12.columns
+        = f.label :name
+        = f.text_field :name, :"required pattern" => '[a-zA-Z]+'
+        small.error Name is required and must be a string
+    .row
+      .small-12.columns
+        = f.label :start_date
+        = f.text_field :start_date
+    .row
+      .small-12.columns
+        = f.label :interval
+        = f.text_field :interval, :"required pattern" => '[1-9]+'
+        small.error Interval is required and must be a positive integer
+    .row
+      .small-12.columns
+        = f.label :organizers_per_event
+        = f.text_field :organizers_per_event
+    .row
+      .small-12.columns
+        = f.label :num_of_members_to_raffle
+        = f.text_field :num_of_members_to_raffle    
+    .row
+      .large-12.large-centered.columns
+        .actions
+          .row
+            .small-6.columns
+              = f.submit 'Save', class: 'button radius expand right'
+            .small-6.columns
+              = link_to 'Cancel', :back, class: 'button alert radius expand left'

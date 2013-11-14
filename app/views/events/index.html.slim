@@ -1,0 +1,10 @@
+- if @events.any? 
+	h1 Incoming Events
+	- @events.each do |event|
+		h2= event.date
+		ul Organizers
+		-	event.members.each do |member|
+			li= member.name
+		br
+- else
+	h1 No Incoming Events!

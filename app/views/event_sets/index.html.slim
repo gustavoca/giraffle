@@ -1,17 +1,19 @@
-h1 Listing event_sets
+h1 Event Sets
 
-table
-  tr
-    th
-    th
-    th
+table.responsive
+	thead
+	  tr
+	    th= EventSet.human_attribute_name(:name)
+	    th= EventSet.human_attribute_name(:start_date)
+	    th= t '.actions'
+	tbody
+  	- @event_sets.each do |event_set|
+    	tr
+      	td width="400"= link_to event_set.name, event_set
+      	td width="400"= event_set.start_date
+      	td width="200"
+					= link_to 'Edit', edit_event_set_path(event_set), class: 'button small radius'
+					' 
+					= link_to 'Delete', event_set, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small radius alert'
 
-  - @event_sets.each do |event_set|
-    tr
-      td = link_to 'Show', event_set
-      td = link_to 'Edit', edit_event_set_path(event_set)
-      td = link_to 'Destroy', event_set, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Event set', new_event_set_path
+= link_to 'New Event Set', new_event_set_path, class: 'button radius'

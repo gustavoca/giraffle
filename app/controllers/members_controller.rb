@@ -1,13 +1,16 @@
 class MembersController < ApplicationController
-	before_action :set_member, only: [:edit, :update, :destroy]
+	before_action :set_member, only: [:show, :edit, :update, :destroy]
 	before_action :authorize
 
   def index
     @members = Member.where(group: current_group)
   end
 
+  def show
+  end
+
 	def new
-		@member = Member.new(group: current_group)
+		@member = Member.new
 	end
 
 	def edit
@@ -15,11 +18,11 @@ class MembersController < ApplicationController
 
 	def create
 		@member = Member.new(member_params)
+		@member.group = current_group
 
 		if @member.save
 			respond_to do |format|
 				format.html { redirect_to members_url, notice: 'Member was successfully created.' }
-				format.js
 			end
 		else
 			render 'new'
@@ -28,7 +31,9 @@ class MembersController < ApplicationController
 
   def update
 		if @member.update(member_params)
-      redirect_to members_url, notice: 'Member was successfully updated.'
+			respond_to do |format|
+      	format.html { redirect_to members_url, notice: 'Member was successfully updated.' }
+    	end
     else
       render action: 'edit'
     end
@@ -38,7 +43,6 @@ class MembersController < ApplicationController
     @member.destroy
     respond_to do |format|
 			format.html { redirect_to members_url }
-			format.js
 		end
   end
 
@@ -48,6 +52,6 @@ class MembersController < ApplicationController
     end
 
 		def member_params
-			params.require(:member).permit(:name, :email, :group_id)
+			params.require(:member).permit(:name, :email)
 		end
 end
