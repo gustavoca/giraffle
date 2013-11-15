@@ -58,6 +58,6 @@ class EventSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_set_params
-      params.require(:event_set).permit(:name, :start_date, :interval, :organizers_per_event, :num_of_mebers_to_raffle)
+      params.require(:event_set).permit(:name, :start_date, :interval, :organizers_per_event, :member_ids => [])
     end
 end

@@ -1,11 +1,12 @@
 class EventSet < ActiveRecord::Base
   belongs_to :group
   has_many 	 :events, dependent: :delete_all
+  has_and_belongs_to_many :members
   
   validates :name, presence: true
   validates :start_date, presence: true
-
-  def raffle(members)
+  
+  def raffle
   	events.clear
   	event_count = 1
   	
