@@ -13,4 +13,4 @@ Member.create(name: 'Marco Salamanca', email: 'msalamanca@carteljuarez.com', gro
 Member.create(name: 'Hector Salamanca', email: 'hsalamanca@carteljuarez.com', group: group)
 Member.create(name: 'Don Eladio', email: 'evuente@carteljuarez.com', group: group)
 
-EventSet.create(name: 'Meth Cooking Lessons', start_date: Time.now, interval: 7, organizers_per_event: 3, group: group, members: Member.where(group: group))
+event_set = EventSet.create(name: 'Meth Cooking Lessons', start_date: Time.now, interval: 7, organizers_per_event: 3, group: group, members: Member.where(group: group))

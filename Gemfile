@@ -16,6 +16,7 @@ gem 'high_voltage'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'squeel'
 gem 'email_validator'
+gem 'cancan'
 group :development do
 	gem 'better_errors'
 	gem "binding_of_caller"

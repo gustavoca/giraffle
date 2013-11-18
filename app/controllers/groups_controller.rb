@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+	load_and_authorize_resource
+	
 	before_action :set_group, only: 	[:edit, :update, :destroy]
 	before_action :authorize, except: [:new,  :create]
 

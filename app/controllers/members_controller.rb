@@ -1,9 +1,11 @@
 class MembersController < ApplicationController
+	load_and_authorize_resource
+
 	before_action :set_member, only: [:show, :edit, :update, :destroy]
 	before_action :authorize
 
   def index
-    @members = Member.where(group: current_group)
+    @members = current_group.members
   end
 
   def show
@@ -42,7 +44,7 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_to do |format|
-			format.html { redirect_to members_url }
+			format.html { redirect_to members_url, notice: 'Member was successfully deleted.' }
 		end
   end
 

@@ -17,9 +17,9 @@
           li= link_to 'New Event Set', new_event_set_path
           li.divider
           li= link_to 'Incoming Events', events_path
-          li.divider.show-for-large-up
+          li.divider
       ul.right
-        li.divider
+        li.divider.show-for-large-up
         - if group_signed_in?
           li.has-dropdown
             a href="#"= current_group.name            

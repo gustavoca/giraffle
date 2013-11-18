@@ -1,8 +1,10 @@
 class EventSetsController < ApplicationController
+  load_and_authorize_resource
+  
   before_action :set_event_set, only: [:show, :edit, :update, :destroy]
 
   def index
-    @event_sets = EventSet.where(group: current_group)
+    @event_sets = current_group.event_sets
   end
 
   def show

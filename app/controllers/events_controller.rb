@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
+  
   before_action :set_event, only: [:show]
 
   def index
-    @events = Event.where{group == current_group && date >= Time.now}
+    @events = current_group.events.where{date >= Time.now}
   end
 
   def show

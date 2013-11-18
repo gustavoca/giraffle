@@ -8,41 +8,31 @@
             li= message
     .row
       .large-12.columns
-        = f.label :name
-        = f.text_field :name, :"required pattern" => '[a-zA-Z]+'
+        = f.text_field :name, placeholder: 'Name', :"required pattern" => '[a-zA-Z]+'
         small.error Name is required and must be a string
     .row.collapse
-      .large-2.columns
-        span.prefix.radius Starting
-      .large-10.columns
-        = f.text_field :start_date, :"required pattern" => 'date'
+      .small-4.columns
+        span.prefix.radius Starting on
+      .small-8.columns
+        = f.date_field :start_date, placeholder: 'date', :"required pattern" => 'date'
         small.error You must enter a valid date in 'YYYY-DD-MM' format
     .row.collapse
-      .large-2.columns
-        span.prefix.radius every
-      .large-6.columns
-        = f.text_field :interval, :"required pattern" => '[1-9]+'
-        small.error Interval is required and must be a positive integer
-      .large-4.columns
-        span.postfix.radius days
-    .row.collapse
-      .small-2.columns
-        span.prefix.radius with
-      .small-6.columns  
-        = f.text_field :organizers_per_event, :"required pattern" => '[1-9]+'
-        small.error Organizers per Event are required and must be a positive integer
       .small-4.columns
-        span.postfix.radius organizers per event
+        span.prefix.radius every
+      .small-8.columns
+        = f.text_field :interval, placeholder: '{n} day(s)', :"required pattern" => '[1-9]+'
+        small.error Interval is required and must be a positive integer
+    .row.collapse
+      .small-4.columns
+        span.prefix.radius with
+      .small-8.columns  
+        = f.text_field :organizers_per_event, placeholder: '{n} members(s) per event', :"required pattern" => '[1-9]+'
+        small.error Organizers per Event are required and must be a positive integer
     .row
       .large-12.columns
-        h3 Members to raffle:
-        = hidden_field_tag "event_set[member_ids][]", nil
-        - current_group.members.each do |member|
-          .row
-            .large-1.columns
-              = check_box_tag "event_set[member_ids][]", member.id, @event_set.member_ids.include?(member.id), id: dom_id(member), class: 'right inline'  
-            .large-11.columns 
-              = label_tag dom_id(member), member.name
+        .panel.radius
+          h3 Members to raffle:
+          = f.collection_check_boxes :member_ids, current_group.members, :id, :name
     .row
       .large-12.large-centered.columns
         .actions

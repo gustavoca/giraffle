@@ -6,23 +6,27 @@ class EventSet < ActiveRecord::Base
   validates :name, presence: true
   validates :start_date, presence: true
   
+  before_create :raffle
+
   def raffle
-  	events.clear
-  	event_count = 1
-  	
-  	(members.count / organizers_per_event).times do
-  		members.shuffle!
-  		event = Event.new
-  		event.date = start_date + (interval * event_count).days
-  		event.members << members.shift(organizers_per_event)
+    logger.info 'raffling...'
+    events.clear
+    counter = 0
+    members_array = members.to_a
+
+    (members_array.count / organizers_per_event).times do
+      members_array.shuffle!
+      event = Event.new
+      event.date = start_date + (interval * counter).days
+  		event.members << members_array.shift(organizers_per_event)
   		events << event
-  		event_count += 1
+  		counter += 1
   	end
   	
-  	if members.count > 0
-  		members.each do |member|
+  	if members_array.count > 0
+  		members_array.each do |member|
   			events.select { |event| event.members.count == organizers_per_event }.sample.members << member
-  			members.shift
+  			members_array.shift
   		end
   	end
   end
