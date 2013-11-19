@@ -15,7 +15,7 @@
         span.prefix.radius Starting on
       .small-8.columns
         = f.date_field :start_date, placeholder: 'date', :"required pattern" => 'date'
-        small.error You must enter a valid date in 'YYYY-DD-MM' format
+        small.error You must enter a valid date
     .row.collapse
       .small-4.columns
         span.prefix.radius every
@@ -38,6 +38,6 @@
         .actions
           .row
             .large-6.columns
-              = f.submit 'Save', class: 'button radius expand right'
+              = f.submit 'Save', class: 'submit expand right'
             .large-6.columns
               = link_to 'Cancel', :back, class: 'button alert radius expand left'

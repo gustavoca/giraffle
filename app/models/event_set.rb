@@ -30,5 +30,4 @@ class EventSet < ActiveRecord::Base
   		end
   	end
   end
-
 end

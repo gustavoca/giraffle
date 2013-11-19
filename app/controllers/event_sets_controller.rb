@@ -23,6 +23,7 @@ class EventSetsController < ApplicationController
 
     respond_to do |format|
       if @event_set.save
+        NotificationService.send_new_event_set_created_notification(@event_set);
         format.html { redirect_to @event_set, notice: 'Event set was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event_set }
       else

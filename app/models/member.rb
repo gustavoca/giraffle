@@ -15,4 +15,8 @@ class Member < ActiveRecord::Base
 	def organized_events
 		events.where{date < Time.now}
 	end
+
+	def events_from_set(event_set)
+		events.where{event_set_id == event_set.id}
+	end
 end

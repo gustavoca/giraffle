@@ -1,31 +1,40 @@
 h1 =@member.name
 
-h3 - Events to Organize
-- if @member.events_to_organize.any?
-	table#members.responsive
-		thead
-			tr
-				th= Event.human_attribute_name(:date)
-				th= Event.human_attribute_name(:event_set)
-		tbody
-			- @member.events_to_organize.each do |event|
-					tr
-						td width="600"= event.date
-						td width="600"= event.event_set.name
-- else
-	h4 Not events yet!
-
-h3 - Organized Events
-- if @member.organized_events.any?
-	table#members.responsive
-		thead
-			tr
-				th= Event.human_attribute_name(:date)
-				th= Event.human_attribute_name(:event_set)
-		tbody
-				- @member.organized_events.each do |event|
-					tr
-						td width="600"= event.date
-						td width="600"= event.event_set.name
-- else
-	h4 Not events yet!
+.section-container.accordion data-section="accordion"
+  section.active
+  	p.title data-section-title=""
+  		a href="#panel1" Events to Organize
+    .content data-section-content=""
+			- if @member.events_to_organize.any?
+				table#members.responsive
+					thead
+						tr
+							th= Event.human_attribute_name(:date)
+							th= Event.human_attribute_name(:event_set)
+							th With
+					tbody
+						- member_id = @member.id
+						- @member.events_to_organize.each do |event|
+								tr
+									td width="600"= event.date.strftime('%A %d of %B %Y')
+									td width="600"= event.event_set.name
+									td width="600"= event.members.where{id != member_id}.pluck(:name).join(', ')
+			- else
+				h4 Not events yet!
+  section
+  	p.title data-section-title=""
+  		a href="#panel2" Organized Events
+    .content data-section-content=""
+			- if @member.organized_events.any?
+				table#members.responsive
+					thead
+						tr
+							th= Event.human_attribute_name(:date)
+							th= Event.human_attribute_name(:event_set)
+					tbody
+							- @member.organized_events.each do |event|
+								tr
+									td width="600"= event.date.strftime('%A %d of %B %Y')
+									td width="600"= event.event_set.name
+			- else
+				h4 Not events yet!

@@ -1062,7 +1062,7 @@ $input-include-glowing-effect: true;
 
 // Font controls
 
-// $section-font-size: em-calc(14);
+$section-font-size: em-calc(24);
 
 // Control the color of the background and some size options
 
@@ -1327,3 +1327,21 @@ $topbar-margin-bottom: 25px;
 @import 'foundation';
 @import 'foundation-icons';
 @import 'responsive-tables';
+
+.panel-primary {
+  @extend .panel;
+  @extend .callout;
+  @extend .radius;
+  @extend .text-center;
+}
+
+.panel-secondary {
+  @extend .panel;
+  @extend .radius;
+  @extend .text-center;
+}
+
+.submit {
+  @extend .button;
+  @extend .radius;
+}

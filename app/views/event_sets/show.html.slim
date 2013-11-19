@@ -1,6 +1,21 @@
-p#notice = notice
+h1= @event_set.name
 
+- @event_set.events.each_with_index do |event, index|
+	- index += 1 
+	.panel.radius
+		.row
+			.large-12.columns
+				.panel-primary
+					h1= index.ordinalize
+		.row	
+			.large-12.columns
+				.panel-secondary
+					h2= event.date.strftime('%A %d of %B %Y')
+		.row
+			.large-12.columns
+				.panel-secondary
+					- event.members.each do |member|
+						h3= member.name
+	br
 
-= link_to 'Edit', edit_event_set_path(@event_set)
-'|
 = link_to 'Back', event_sets_path
