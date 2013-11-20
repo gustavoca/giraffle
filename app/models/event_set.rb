@@ -18,9 +18,10 @@ class EventSet < ActiveRecord::Base
       members_array.shuffle!
       event = Event.new
       event.date = start_date + (interval * counter).days
-  		event.members << members_array.shift(organizers_per_event)
-  		events << event
-  		counter += 1
+      event.members << members_array.shift(organizers_per_event)
+      counter += 1
+      event.order = counter 
+      events << event
   	end
   	
   	if members_array.count > 0

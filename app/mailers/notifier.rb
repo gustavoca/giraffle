@@ -6,9 +6,9 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.event_set_created.subject
   #
-  def event_set_created(member, events)
+  def event_set_created(member, event)
     @member = member
-    @events = events
+    @event  = event
 
     mail to: member.email, subject: 'New Event Set Created!'
   end

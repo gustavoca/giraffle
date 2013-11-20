@@ -8,6 +8,10 @@ class Member < ActiveRecord::Base
 	validates :name,  presence: true
 	validates :email, email: true
 
+	def first_name
+		name.split(' ')[0]
+	end
+
 	def events_to_organize
 		events.where{date >= Time.now}
 	end

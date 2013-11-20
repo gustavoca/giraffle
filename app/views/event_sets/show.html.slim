@@ -1,12 +1,11 @@
 h1= @event_set.name
 
-- @event_set.events.each_with_index do |event, index|
-	- index += 1 
+- @event_set.events.each do |event|
 	.panel.radius
 		.row
 			.large-12.columns
 				.panel-primary
-					h1= index.ordinalize
+					h1= event.order.ordinalize
 		.row	
 			.large-12.columns
 				.panel-secondary
