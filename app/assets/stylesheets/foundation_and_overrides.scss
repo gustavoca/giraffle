@@ -1328,6 +1328,8 @@ $topbar-margin-bottom: 25px;
 @import 'foundation-icons';
 @import 'responsive-tables';
 
+
+
 .panel-primary {
   @extend .panel;
   @extend .callout;
@@ -1344,4 +1346,49 @@ $topbar-margin-bottom: 25px;
 .submit {
   @extend .button;
   @extend .radius;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+
+.footer{
+  background: #eee;
+}
+
+.push{
+  height: 4em;
+}
+#innerDiv {
+  min-height: 20%;
+}
+
+#mainImg{
+  min-height: 120;
+  min-width: 120; 
+}
+
+#div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position:relative;
+}
+
+#img{
+  max-height: 200; 
+  max-width: 200;
+  min-height: 80;
+  min-width: 80; 
 }
