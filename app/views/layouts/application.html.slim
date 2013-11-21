@@ -12,11 +12,20 @@ html
   body
     header
       = render 'layouts/navigation'
-    main role="main"
-      .container
-        .content
-          .row
-            .large-12.columns
-              = render 'layouts/messages'
-              = yield
-          footer
+    .wrapper
+      main role="main"
+        .container
+          .content
+            .row
+              .large-12.columns
+                = render 'layouts/messages'
+                = yield
+        .push
+    .footer
+      .row
+        .row
+          .large-12.columns align="center"
+            h2 Giraffle
+        .row
+          .large-12.columns align="center"
+            p Copyright 2013
