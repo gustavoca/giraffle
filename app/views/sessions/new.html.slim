@@ -1,17 +1,46 @@
+.row id="div"
+  .row
+    .small-4 id="innerDiv"
+  .row
+    .small-4.columns
+        img src="groupIcon.png" id="mainImg"
+    .large-6.large-offset-2.columns
+        h1 Sign In
+        = form_tag sessions_path do
+          .fieldset
+            .row
+              .small-12.columns
+                = label_tag :group_id
+                = text_field_tag :group_id, params[:group_id]
+            .row
+              .small-12.columns
+                = label_tag :password
+                = password_field_tag :password, params[:group_id]
+            .row
+              .small-3.columns
+                .actions= submit_tag 'Sign In', class: 'button'
+          .row
+            .small-3.columns
+              = link_to 'Sign Up', sign_up_path
+hr
 .row
-  .large-8.large-offset-2.columns
-    .panel.radius
-      h1 Sign In
-      = form_tag sessions_path do
-        .fieldset
-          .row
-            .small-12.columns
-              = label_tag :group_id
-              = text_field_tag :group_id, params[:group_id]
-          .row
-            .small-12.columns
-              = label_tag :password
-              = password_field_tag :password, params[:group_id]
-          .row
-            .small-3.small-centered.columns
-              .actions= submit_tag 'Sign In', class: 'submit'
+  .row
+    .large-4 id="innerDiv" 
+  .row
+    .large-4.columns align="center"
+      img src="connectIcon.png" id="img"
+    .large-6.large-offset-2.columns
+      h4 Connect
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+  .row
+    .large-4.columns align="center"
+      img src="planIcon.png" id="img"
+    .large-6.large-offset-2.columns
+      h4 Planning
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.  
+  .row
+    .large-4.columns align="center"
+      img src="shareIcon.png" id="img"
+    .large-6.large-offset-2.columns
+      h4 Share
+      p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. 
