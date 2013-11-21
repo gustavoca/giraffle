@@ -1,15 +1,15 @@
 h1= @event_set.name
 
-- @event_set.events.each do |event|
+- @event_set.events.decorate.each do |event|
 	.panel.radius
 		.row
 			.large-12.columns
 				.panel-primary
-					h1= event.order.ordinalize
+					h1= event.order
 		.row	
 			.large-12.columns
 				.panel-secondary
-					h2= event.date.strftime('%A %d of %B %Y')
+					h2= event.date
 		.row
 			.large-12.columns
 				.panel-secondary

@@ -1,5 +1,5 @@
 - flash.each do |name, msg|
   - if msg.is_a?(String)
-    .alert-box.radius class="#{name == :notice ? 'success' : 'alert'}" data-alert=""
-      = content_tag :div, msg, id: "flash_#{name}"
+    = content_tag :div, id: "flash_#{name}", data: { alert: '' }
+      = content_tag :div, msg
       a.close href="#" &times;

@@ -9,7 +9,7 @@ table#members.responsive
 	tbody
 		- @members.each do |member|
 			tr
-				td width="400"= link_to member.name, member
+				td width="400"= member.linked_name
 				td width="400"= member.email
 				td width="150"
 					= link_to edit_member_path(member), class: 'button small radius' do

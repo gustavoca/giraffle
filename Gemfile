@@ -19,6 +19,7 @@ gem 'squeel'
 gem 'email_validator'
 gem 'cancan'
 gem 'roadie', '~> 2.4.2'
+gem 'draper', '~> 1.3.0'
 group :development do
 	gem 'better_errors'
 	gem "binding_of_caller"

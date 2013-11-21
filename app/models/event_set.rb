@@ -2,11 +2,14 @@ class EventSet < ActiveRecord::Base
   belongs_to :group
   has_many 	 :events, dependent: :delete_all
   has_and_belongs_to_many :members
-  
+
   validates :name, presence: true
   validates :start_date, presence: true
-  
+  validates :interval, presence: true, numericality: { only_integer: true, less_than_or_equal_to: 365 }
+  validates :organizers_per_event, presence: true, numericality: { only_integer: true }
+
   before_create :raffle
+  before_destroy { members.clear }
 
   def raffle
     logger.info 'raffling...'
@@ -31,4 +34,5 @@ class EventSet < ActiveRecord::Base
   		end
   	end
   end
+
 end

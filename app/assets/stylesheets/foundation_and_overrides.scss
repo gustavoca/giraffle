@@ -1345,3 +1345,20 @@ $topbar-margin-bottom: 25px;
   @extend .button;
   @extend .radius;
 }
+
+#flash_notice {
+  @extend .alert-box;
+  @extend .radius;
+  @extend .success;
+}
+
+#flash_error, #flash_alert {
+  @extend .alert-box;
+  @extend .radius;
+  @extend .alert;
+}
+
+#flash_warning {
+  @extend .alert-box;
+  @extend .radius;
+}
