@@ -8,6 +8,7 @@ class EventSetsController < ApplicationController
   end
 
   def show
+    @event_set = EventSetDecorator.new(@event_set)
   end
 
   def new

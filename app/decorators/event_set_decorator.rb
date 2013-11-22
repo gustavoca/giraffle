@@ -1,5 +1,6 @@
 class EventSetDecorator < Draper::Decorator
   delegate_all
+  decorates_association :events
 
   def linked_name
   	h.link_to object.name, object
