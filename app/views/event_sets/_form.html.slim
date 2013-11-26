@@ -1,43 +1,42 @@
 = form_for @event_set, data: { abide: '' } do |f|
-  .fieldset
-    - if @event_set.errors.any?
-      .error_messages
-        h2 Form is invalid
-        ul
-          - @event_set.errors.full_messages.each do |message|
-            li= message
-    .row
-      .large-12.columns
-        = f.text_field :name, placeholder: 'Name', :"required pattern" => '[a-zA-Z]+'
-        small.error Name is required and must be a string
-    .row.collapse
-      .small-4.columns
-        span.prefix.radius Starting on
-      .small-8.columns
-        = f.date_field :start_date, placeholder: 'date', :"required pattern" => 'date'
-        small.error You must enter a valid date
-    .row.collapse
-      .small-4.columns
-        span.prefix.radius every
-      .small-8.columns
-        = f.text_field :interval, placeholder: '{n} day(s)', :"required pattern" => '[1-9]+'
-        small.error Interval is required and must be a positive integer
-    .row.collapse
-      .small-4.columns
-        span.prefix.radius with
-      .small-8.columns  
-        = f.text_field :organizers_per_event, placeholder: '{n} members(s) per event', :"required pattern" => '[1-9]+'
-        small.error Organizers per Event are required and must be a positive integer
-    .row
-      .large-12.columns
-        .panel.radius
-          h3 Members to raffle:
-          = f.collection_check_boxes :member_ids, current_group.members, :id, :name
-    .row
-      .large-12.large-centered.columns
-        .actions
-          .row
-            .large-6.columns
-              = f.submit 'Save', class: 'submit expand right'
-            .large-6.columns
-              = link_to 'Cancel', :back, class: 'button alert radius expand left'
+  - if @event_set.errors.any?
+    .error_messages
+      h2 Form is invalid
+      ul
+        - @event_set.errors.full_messages.each do |message|
+          li= message
+  .row
+    .large-12.columns
+      = f.text_field :name, placeholder: 'Name', :"required pattern" => '[a-zA-Z]+'
+      small.error Name is required and must be a string
+  .row.collapse
+    .small-4.columns
+      span.prefix.radius Starting on
+    .small-8.columns
+      = f.date_field :start_date, placeholder: 'date', :"required pattern" => 'date'
+      small.error You must enter a valid date
+  .row.collapse
+    .small-4.columns
+      span.prefix.radius every
+    .small-8.columns
+      = f.text_field :interval, placeholder: '{n} day(s)', :"required pattern" => '[1-9]+'
+      small.error Interval is required and must be a positive integer
+  .row.collapse
+    .small-4.columns
+      span.prefix.radius with
+    .small-8.columns  
+      = f.text_field :organizers_per_event, placeholder: '{n} members(s) per event', :"required pattern" => '[1-9]+'
+      small.error Organizers per Event are required and must be a positive integer
+  .row
+    .large-12.columns
+      .panel.radius
+        h3 Members to raffle:
+        = f.collection_check_boxes :member_ids, current_group.members, :id, :name
+  .row
+    .large-12.large-centered.columns
+      .actions
+        .row
+          .large-6.columns
+            = f.submit 'Save', class: 'submit expand right'
+          .large-6.columns
+            = link_to 'Cancel', :back, class: 'button alert radius expand left'

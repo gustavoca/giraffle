@@ -12,10 +12,10 @@ table.responsive
       	td width="400"= event_set.linked_name
       	td width="400"= event_set.start_date
       	td width="150"
-					= link_to edit_event_set_path(event_set), class: 'button small radius' do
+					= link_to edit_event_set_path(event_set), class: 'button tiny radius' do
 						i.fi-pencil
 					' 
-					= link_to event_set, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button small radius alert' do
+					= link_to event_set, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button tiny radius alert' do
 						i.fi-trash
 
 = link_to 'New Event Set', new_event_set_path, class: 'button radius'
