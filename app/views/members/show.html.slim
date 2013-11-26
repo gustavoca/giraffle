@@ -1,10 +1,9 @@
 h1 =@member.name
 
-.section-container.accordion data-section="accordion"
-  section.active
-  	p.title data-section-title=""
-  		a href="#panel1" Events to Organize
-    .content data-section-content=""
+dl.accordion data-accordion=""
+  dd
+  	a href="#panel1" Events to Organize
+    #panel1.content.active
 			- if @member.events_to_organize.any?
 				table#members.responsive
 					thead
@@ -18,13 +17,12 @@ h1 =@member.name
 								tr
 									td width="600"= event.date
 									td width="600"= event.event_set.linked_name
-									td width="600"= event.members_names excluding: [member_id]
+									td width="600"= event.organizers_names excluding: [member_id]
 			- else
 				h4 Not events yet!
-  section
-  	p.title data-section-title=""
-  		a href="#panel2" Organized Events
-    .content data-section-content=""
+  dd
+  	a href="#panel2" Organized Events
+    #panel2.content
 			- if @member.organized_events.any?
 				table#members.responsive
 					thead

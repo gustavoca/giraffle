@@ -19,14 +19,14 @@ class EventDecorator < Draper::Decorator
   	object.date.strftime('%A %d of %B %Y')
   end
 
-  def members_names(opts={})
-    excluded_members = opts.fetch(:excluding) { Array.new }
-    separator        = opts.fetch(:separator) { ', ' }
+  def organizers_names(opts={})
+    excluded_organizers = opts.fetch(:excluding) { Array.new }
+    separator = opts.fetch(:separator) { ', ' }
 
-    if excluded_members.any?
-      members.where{id.not_in excluded_members}.pluck(:name).join(separator)
+    if excluded_organizers.any?
+      object.organizers.where{id.not_in excluded_organizers}.pluck(:name).join(separator)
     else
-      members.pluck(:name).join(separator)
+      object.organizers.pluck(:name).join(separator)
     end
   end
 

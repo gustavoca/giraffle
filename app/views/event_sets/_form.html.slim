@@ -29,9 +29,23 @@
       small.error Organizers per Event are required and must be a positive integer
   .row
     .large-12.columns
-      .panel.radius
-        h3 Members to raffle:
-        = f.collection_check_boxes :member_ids, current_group.members, :id, :name
+        .row
+          .large-6.columns
+            .panel.radius
+              h3 Members to raffle
+              br
+              = f.collection_check_boxes :member_ids, current_group.members, :id, :name do |b|
+                - b.label(:"data-value" => b.value) { b.check_box + ' ' + b.text }
+          .large-6.columns
+            .panel.radius
+              h3 Options
+              br
+              button#check_all.radius.expand type="button"
+                | Check All
+              button#uncheck_all.radius.expand type="button"
+                | Uncheck All
+              button#toggle_all.radius.expand type="button"
+                | Toggle All
   .row
     .large-12.large-centered.columns
       .actions
@@ -40,3 +54,17 @@
             = f.submit 'Save', class: 'submit expand right'
           .large-6.columns
             = link_to 'Cancel', :back, class: 'button alert radius expand left'
+
+javascript:
+  $('#toggle_all').on("click", function() { 
+    $('input[type="checkbox"]'). click(); });
+
+  $('#check_all').on("click", function() { 
+    $('input:checkbox').each(function() {
+      $(this).prop('checked', true); });
+      return false; });
+
+  $('#uncheck_all').on("click", function() { 
+    $('input:checkbox').each(function() {
+      $(this).prop('checked', false); });
+      return false; });
