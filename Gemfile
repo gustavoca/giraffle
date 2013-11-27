@@ -27,4 +27,5 @@ group :development do
   gem 'meta_request'
   gem 'irbtools', :require => false
   gem 'pry'
+  gem 'bullet'
 end
