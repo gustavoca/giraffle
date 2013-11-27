@@ -24,6 +24,7 @@ group :development do
 	gem 'better_errors'
 	gem "binding_of_caller"
   gem 'quiet_assets'
+  gem 'meta_request'
   gem 'irbtools', :require => false
   gem 'pry'
 end
