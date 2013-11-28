@@ -20,6 +20,7 @@ gem 'email_validator'
 gem 'cancan'
 gem 'roadie', '~> 2.4.2'
 gem 'draper', '~> 1.3.0'
+
 group :development do
 	gem 'better_errors'
 	gem "binding_of_caller"
@@ -28,4 +29,10 @@ group :development do
   gem 'irbtools', :require => false
   gem 'pry'
   gem 'bullet'
+end
+
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+	gem 'thin'
 end
