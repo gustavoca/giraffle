@@ -1,0 +1,14 @@
+= form_tag sessions_path do
+  .fieldset
+    .row
+      .small-12.columns
+        = text_field_tag :group_id, params[:group_id], placeholder: "Group"
+    .row
+      .small-12.columns
+        = password_field_tag :password, params[:group_id], placeholder: "Password"
+    .row
+      .small-3.columns
+        .actions= submit_tag 'Sign In', class: 'button'
+  .row
+    .small-3.columns
+      = link_to 'Sign Up', sign_up_path

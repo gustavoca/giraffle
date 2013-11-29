@@ -1,31 +1,8 @@
-.row
-  .large-8.large-offset-2.columns
-    .panel.radius
+.row id="div"
+  .small-4 id="innerDiv"
+  .row
+    .small-4.columns align="center"
+      img src="groupIcon.png" id="mainImg" 
+    .large-6.large-offset-2.columns
       h1 Sign Up
-      = form_for @group do |f|
-        .fieldset
-          - if @group.errors.any?
-            .error_messages
-              h2 Form is invalid
-              ul
-                - @group.errors.full_messages.each do |message|
-                  li= message
-          .row
-            .small-12.columns
-              = f.label :name
-              = f.text_field :name
-          .row
-            .small-12.columns
-              = f.label :group_id
-              = f.text_field :group_id
-          .row
-            .small-12.columns
-              = f.label :password
-              = f.password_field :password
-          .row
-            .small-12.columns
-              = f.label :password_confirmation
-              = f.password_field :password_confirmation
-          .row
-            .small-3.small-centered.columns
-              .actions= f.submit 'Sign Up', class: 'button radius'
+      = render 'form'

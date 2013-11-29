@@ -1,0 +1,78 @@
+commit 6267d0f4b2c03a07b52b2a64f1b50eb2176d3f35
+Author: Gustavo Calderon <g.calderon.a@hotmail.com>
+Date:   Thu Nov 21 20:32:19 2013 +0000
+
+    Agregar Footer, modificacion vista session
+
+commit e698232a87799883185c82ec315318072ed50e79
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Wed Nov 20 18:04:03 2013 -0400
+
+    add html email, add order to events
+
+commit 27f948ed6cc3ff60a1f76a967d1b07bdf1e23295
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Tue Nov 19 18:59:24 2013 -0400
+
+    add notification service
+
+commit e01ee1a8f942d0d1dc511adf25e94caffee65752
+Merge: 1ed3429 694a56e
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Tue Nov 19 09:54:48 2013 -0400
+
+    Merge branch 'foundation-icons'
+
+commit 694a56ed930f1162f10bea28c471642d9af51638
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Tue Nov 19 09:54:04 2013 -0400
+
+    add foundation icons
+
+commit 1ed342983d33e016e34c34b15eb097de73bce8f3
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Mon Nov 18 02:23:12 2013 -0400
+
+    add authorization using cancan gem
+
+commit 00d38c9ccbbedc9fcb73322397e1d08d6214b72b
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Fri Nov 15 18:37:16 2013 -0400
+
+    add new event set creation with raffle
+
+commit 7d0aa7de754bf9224e4d95511e7a57f38cb6791b
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Thu Nov 14 19:18:21 2013 -0400
+
+    add event set crud, add display incoming events page, add some styling to all pages
+
+commit 14e9a3c5b0f0b9024a4c2680fc6ab91f7626cb66
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Wed Nov 13 18:22:17 2013 -0400
+
+    add event sets scaffolding
+
+commit 42ab8d098c61a6a4dff6127133ca07b9c565d9c8
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Fri Nov 8 18:34:11 2013 -0400
+
+    add changes from 08/11/2013 at work
+
+commit 529965d46b033f83a3c09cecc57759d07c30efd6
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Fri Nov 8 00:55:10 2013 -0400
+
+    remove modals (for now)
+
+commit c3de430a123c7ca25e3d370b40a65dcef73cc8e6
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Thu Nov 7 18:59:18 2013 -0400
+
+    add changes done 07/11/2013 at work
+
+commit cd685890218ace95de130714fe00f0247d196c91
+Author: Pablo Crivella <pablocrivella@gmail.com>
+Date:   Wed Nov 6 18:12:45 2013 -0400
+
+    initial commit
