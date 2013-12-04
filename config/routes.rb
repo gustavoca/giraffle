@@ -1,4 +1,6 @@
 Giraffle::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 	get 'sign_up', to: 'groups#new', as: 'sign_up'
 	get 'sign_in', to: 'sessions#new', as: 'sign_in'
 	delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'

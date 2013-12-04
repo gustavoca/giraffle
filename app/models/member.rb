@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-	belongs_to :group
+	belongs_to :group, :counter_cache => true
 	has_and_belongs_to_many :events
 
 	before_destroy { events.clear }
