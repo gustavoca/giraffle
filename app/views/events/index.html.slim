@@ -5,7 +5,7 @@
 			.row
 				.large-12.columns
 					.panel-primary
-						h1= event.date.strftime('%A %d of %B %Y')
+						h1= event.date
 			.row
 				.large-12.columns
 					.panel-secondary
@@ -13,8 +13,8 @@
 			.row
 				.large-12.columns
 					.panel-secondary
-						-	event.members.each do |member|
-							h3= member.name
+						-	event.organizers.each do |organizer|
+							h3= organizer.name
 		br
 - else
 	h1 No Incoming Events!

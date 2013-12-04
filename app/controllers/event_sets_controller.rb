@@ -4,10 +4,11 @@ class EventSetsController < ApplicationController
   before_action :set_event_set, only: [:show, :edit, :update, :destroy]
 
   def index
-    @event_sets = current_group.event_sets
+    @event_sets = current_group.event_sets.decorate
   end
 
   def show
+    @event_set = EventSetDecorator.new(@event_set)
   end
 
   def new

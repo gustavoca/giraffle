@@ -9,5 +9,6 @@ Giraffle::Application.routes.draw do
   resources :events
   resources :event_sets
   
+  get "/pages/*id" => 'pages#show', :as => :page, :format => false
   root :to => 'high_voltage/pages#show', id: 'welcome'
 end

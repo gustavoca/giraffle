@@ -1,10 +1,9 @@
 h1 =@member.name
 
-.section-container.accordion data-section="accordion"
-  section.active
-  	p.title data-section-title=""
-  		a href="#panel1" Events to Organize
-    .content data-section-content=""
+dl.accordion data-accordion=""
+  dd
+  	a href="#panel1" Events to Organize
+    #panel1.content.active
 			- if @member.events_to_organize.any?
 				table#members.responsive
 					thead
@@ -14,17 +13,16 @@ h1 =@member.name
 							th With
 					tbody
 						- member_id = @member.id
-						- @member.events_to_organize.each do |event|
+						- @member.events_to_organize.decorate.each do |event|
 								tr
-									td width="600"= event.date.strftime('%A %d of %B %Y')
-									td width="600"= event.event_set.name
-									td width="600"= event.members.where{id != member_id}.pluck(:name).join(', ')
+									td width="600"= event.date
+									td width="600"= event.event_set.linked_name
+									td width="600"= event.organizers_names excluding: [member_id]
 			- else
 				h4 Not events yet!
-  section
-  	p.title data-section-title=""
-  		a href="#panel2" Organized Events
-    .content data-section-content=""
+  dd
+  	a href="#panel2" Organized Events
+    #panel2.content
 			- if @member.organized_events.any?
 				table#members.responsive
 					thead
@@ -32,9 +30,9 @@ h1 =@member.name
 							th= Event.human_attribute_name(:date)
 							th= Event.human_attribute_name(:event_set)
 					tbody
-							- @member.organized_events.each do |event|
+							- @member.organized_events.decorate.each do |event|
 								tr
-									td width="600"= event.date.strftime('%A %d of %B %Y')
-									td width="600"= event.event_set.name
+									td width="600"= event.date
+									td width="600"= event.event_set.linked_name
 			- else
 				h4 Not events yet!

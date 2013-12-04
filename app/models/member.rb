@@ -7,11 +7,7 @@ class Member < ActiveRecord::Base
 	validates :group, presence: true
 	validates :name,  presence: true
 	validates :email, email: true
-
-	def first_name
-		name.split(' ')[0]
-	end
-
+	
 	def events_to_organize
 		events.where{date >= Time.now}
 	end
@@ -20,7 +16,7 @@ class Member < ActiveRecord::Base
 		events.where{date < Time.now}
 	end
 
-	def events_from_set(event_set)
-		events.where{event_set_id == event_set.id}
+	def event_from_set(event_set)
+		events.where{event_set_id == event_set.id}.first
 	end
 end

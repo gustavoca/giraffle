@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show]
 
   def index
-    @events = current_group.events.where{date >= Time.now}
+    @events = current_group.events.includes(:event_set, :organizers).where{date >= Time.now}.decorate
   end
 
   def show

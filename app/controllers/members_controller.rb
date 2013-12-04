@@ -5,7 +5,7 @@ class MembersController < ApplicationController
 	before_action :authorize
 
   def index
-    @members = current_group.members
+    @members = current_group.members.decorate
   end
 
   def show
