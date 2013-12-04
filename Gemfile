@@ -19,6 +19,7 @@ gem 'email_validator'
 gem 'cancan'
 gem 'roadie', '~> 2.4.2'
 gem 'draper', '~> 1.3.0'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development, :test do
   gem 'sqlite3'
